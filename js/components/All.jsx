@@ -42,7 +42,7 @@ var App = React.createClass({
             <div className="All">
                 <h2 className="All-title">Prop: {this.props.name}</h2>
                 <p className="All-about">State: {this.state.about}</p>
-                <p className="All-dynamic" onClick={this.handleClick}>Dynamic state: {this.state.dynamic}</p>
+                <p className="All-dynamic" onClick={this.handleClick}>Dynamic (click) state: {this.state.dynamic}</p>
                 <p className="All-selected">SelectedProd (ftext proxies) state: {this.state.selectedProduct}</p>
                 <p className="All-product">Product state: {this.state.product}</p>
                 <div className="All-body">

@@ -1,6 +1,5 @@
 var AppDispatcher = require('./AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
-var FluxCartConstants = require('./constants');
 var _ = require('underscore');
 
 // Define initial data points
@@ -17,8 +16,8 @@ function setSelected(index) {
   _selected = _product.variants[index];
 }
 
-// Extend ProductStore with EventEmitter to add eventing capabilities
-var ProductStore = _.extend({}, EventEmitter.prototype, {
+// Extend Store with EventEmitter to add eventing capabilities
+var Store = _.extend({}, EventEmitter.prototype, {
 
   // Return Product data
   getProduct: function() {
@@ -54,14 +53,13 @@ AppDispatcher.register(function(payload) {
   var text;
 
   switch(action.actionType) {
-
     // Respond to RECEIVE_DATA action
-    case FluxCartConstants.RECEIVE_DATA:
+    case 'RECEIVE_DATA':
       loadProductData(action.data);
       break;
 
     // Respond to SELECT_PRODUCT action
-    case FluxCartConstants.SELECT_PRODUCT:
+    case 'SELECT_PRODUCT':
       setSelected(action.data);
       break;
 
@@ -70,10 +68,10 @@ AppDispatcher.register(function(payload) {
   }
 
   // If action was responded to, emit change event
-  ProductStore.emitChange();
+  Store.emitChange();
 
   return true;
 
 });
 
-module.exports = ProductStore;
+module.exports = Store;

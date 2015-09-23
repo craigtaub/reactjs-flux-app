@@ -1,5 +1,4 @@
 var AppDispatcher = require('./AppDispatcher');
-var constants = require('./constants');
 
 // Define actions object
 var Actions = {
@@ -7,7 +6,7 @@ var Actions = {
   // Receive inital product data
   receiveProduct: function(data) {
     AppDispatcher.handleAction({
-      actionType: constants.RECEIVE_DATA,
+      actionType: 'RECEIVE_DATA',
       data: data
     })
   },
@@ -15,7 +14,7 @@ var Actions = {
   // Set currently selected product variation
   selectProduct: function(index) {
     AppDispatcher.handleAction({
-      actionType: constants.SELECT_PRODUCT,
+      actionType: 'SELECT_PRODUCT',
       data: index
     })
   }
