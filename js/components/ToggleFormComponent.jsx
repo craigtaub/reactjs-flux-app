@@ -21,7 +21,6 @@ var ToggleFormComponent = React.createClass({
 
     // Add change listeners to stores
     componentDidMount: function() {
-      // console.log('set change listener on store');
       Store.addChangeListener(this._onChange);
     },
 

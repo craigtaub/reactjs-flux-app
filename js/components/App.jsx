@@ -9,11 +9,3 @@ React.render(
     <ToggleFormComponent />,
     document.getElementById('client-content')
 );
-
-// var HelloWorld = React.createClass({
-//     render: function () {
-//         return <div > Hello World! < /div>
-//     }
-// });
-//
-// React.render( < HelloWorld / > , document.body);
