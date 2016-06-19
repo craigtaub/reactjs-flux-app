@@ -4,23 +4,21 @@ module.exports = function(grunt) {
         watch: {
             react: {
                 files: 'js/components/**/*',
-                // tasks: ['browserify' ,'uglify']
-                tasks: ['browserify']
+                tasks: ['browserify' ,'uglify']
+                // tasks: ['browserify']
             }
         },
         browserify: {
-          build: {
-              options: {
-                debug: false,
-                transform: [
-                    'reactify', // transform reactJS
-                    'babelify' // transform es6 to es5
-                ]
-              },
-              files: {
-                'js/app.js': 'js/components/App.jsx'
-              }
+          dist: {
+            files: {
+              'js/app.js': ['js/components/App.jsx']
+            },
+            options: {
+              transform: [
+                'babelify' // transform es6 to es5
+              ]
             }
+          }
         },
         uglify: {
           my_target: {

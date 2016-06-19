@@ -4,6 +4,11 @@ var _ = require('underscore');
 
 // Define initial data points
 var _product = {}, _selected = null;
+var _higher = {
+  first: 'storeItem',
+  message: 'message empty',
+  toggled: false
+};
 
 // Method to load product data from mock API
 function loadProductData(data) {
@@ -16,8 +21,25 @@ function setSelected(index) {
   _selected = _product.variants[index];
 }
 
+function setSelected(index) {
+  _selected = _product.variants[index];
+}
+
+function setHigherMessage(data) {
+  _higher.message = data;
+}
+
+function setToggle(data) {
+  _higher.toggled = data;
+}
+
 // Extend Store with EventEmitter to add eventing capabilities
 var Store = _.extend({}, EventEmitter.prototype, {
+
+  // Return Product data
+  getHigher: function() {
+    return _higher;
+  },
 
   // Return Product data
   getProduct: function() {
@@ -31,7 +53,7 @@ var Store = _.extend({}, EventEmitter.prototype, {
 
   // Emit Change event
   emitChange: function() {
-    console.log("CHANGE EMITTED");
+    // console.log("CHANGE EMITTED");
     this.emit('change');
   },
 
@@ -61,6 +83,14 @@ AppDispatcher.register(function(payload) {
     // Respond to SELECT_PRODUCT action
     case 'SELECT_PRODUCT':
       setSelected(action.data);
+      break;
+
+    case 'FIRE_AJAX':
+      setHigherMessage(action.data);
+      break;
+
+    case 'FIRE_TOGGLE':
+      setToggle(action.data);
       break;
 
     default:

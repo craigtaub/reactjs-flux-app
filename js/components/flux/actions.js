@@ -17,6 +17,28 @@ var Actions = {
       actionType: 'SELECT_PRODUCT',
       data: index
     })
+  },
+
+  fireAjax: function(data) {
+    AppDispatcher.handleAction({
+      actionType: 'FIRE_AJAX',
+      data: data
+    })
+  },
+
+  fireToggle: function(data) {
+    AppDispatcher.handleAction({
+      actionType: 'FIRE_TOGGLE',
+      data: data
+    });
+
+    // Ajax fails
+    setTimeout(function() {
+      AppDispatcher.handleAction({
+        actionType: 'FIRE_TOGGLE',
+        data: !data
+      });
+    }, 5000)
   }
 
 };
