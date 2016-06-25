@@ -7,11 +7,14 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "envify": "~0.2.0",
-    "grunt": "~0.4.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "react": "~0.13.3",
     "flux": "^2.0.0",
     "fluxxor": "~1.7.3",
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "mobx": "^2.3.2",
+    "mobx-react": "^3.4.0",
+    "react": "~0.13.3",
+    "react-dom": "^15.1.0",
     "underscore": "~1.8.3"
   },
   "devDependencies": {

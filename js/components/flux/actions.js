@@ -33,12 +33,26 @@ var Actions = {
     });
 
     // Ajax fails
-    setTimeout(function() {
-      AppDispatcher.handleAction({
-        actionType: 'FIRE_TOGGLE',
-        data: !data
-      });
-    }, 5000)
+    // setTimeout(function() {
+    //   AppDispatcher.handleAction({
+    //     actionType: 'FIRE_TOGGLE',
+    //     data: !data
+    //   });
+    // }, 5000)
+  },
+
+  fireLowerToggle: function(data) {
+    AppDispatcher.handleAction({
+      actionType: 'FIRE_LOWER_TOGGLE',
+      data: data
+    });
+  },
+
+  fireXToggle: function(data) {
+    AppDispatcher.handleAction({
+      actionType: 'FIRE_X_TOGGLE',
+      data: data
+    });
   }
 
 };

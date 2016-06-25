@@ -1,15 +1,11 @@
 import React  from 'react';
+import {observer} from "mobx-react";
 
-module.exports = React.createClass({
-    // displayName: "ToggleComponent",
+module.exports = observer(React.createClass({
+    // displayName: "ToggleComponentX",
 
     onLocalToggle: function () {
       this.props.onToggle(!this.props.storeToggled);
-    },
-
-    shouldComponentUpdate: function(props, state) {
-        return (props.storeToggled !== this.props.storeToggled);
-        // will not re-render unless message changed
     },
 
     render: function() {
@@ -32,4 +28,4 @@ module.exports = React.createClass({
             </div>
         )
     }
-});
+}));

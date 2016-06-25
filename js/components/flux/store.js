@@ -7,7 +7,9 @@ var _product = {}, _selected = null;
 var _higher = {
   first: 'storeItem',
   message: 'message empty',
-  toggled: false
+  toggled: false,
+  lowerToggled: false,
+  xToggled: false
 };
 
 // Method to load product data from mock API
@@ -31,6 +33,14 @@ function setHigherMessage(data) {
 
 function setToggle(data) {
   _higher.toggled = data;
+}
+
+function setLowerToggle(data) {
+  _higher.lowerToggled = data;
+}
+
+function setXToggle(data) {
+  _higher.xToggled = data;
 }
 
 // Extend Store with EventEmitter to add eventing capabilities
@@ -91,6 +101,14 @@ AppDispatcher.register(function(payload) {
 
     case 'FIRE_TOGGLE':
       setToggle(action.data);
+      break;
+
+    case 'FIRE_LOWER_TOGGLE':
+      setLowerToggle(action.data);
+      break;
+
+    case 'FIRE_X_TOGGLE':
+      setXToggle(action.data);
       break;
 
     default:
