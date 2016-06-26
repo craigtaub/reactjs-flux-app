@@ -12,7 +12,14 @@ module.exports = observer(React.createClass({
     onLocalToggle: function () {
       this.setState({
         storeToggled: !this.state.storeToggled
-      })
+      });
+
+      // DO AJAX AND FAIL
+      setTimeout(() => {
+        this.setState({
+          storeToggled: !this.state.storeToggled
+        });
+      }, 2000);
     },
 
     render: function() {
