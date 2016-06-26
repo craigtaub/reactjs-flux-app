@@ -4,7 +4,6 @@ import Actions from './flux/actions';
 import Message from './Message.jsx';
 import ToggleComponent from './ToggleComponent.jsx';
 import ToggleComponentX from './mobx/ToggleComponentX.jsx';
-import Simple from './mobx/Simple.jsx';
 
 // Method to retrieve state from Stores
 function getState() {
@@ -56,12 +55,9 @@ var ToggleFormComponent = React.createClass({
     // with same component label + input must have unique name else click does wrong one.
     render: function() {
         console.log('RENDER ToggleFormComponent');
-        var title = {
-          title: 'My Title'
-        };
         return (
             <div className="All">
-                <Simple simple={title} />
+                <h1>Parent</h1>
                 <Message click={this.onClickButton} text={this.state.higher.message} />
                 <ToggleComponent text="first" id="1" onToggle={this.onToggle} storeToggled={this.state.higher.toggled}/>
                 <ToggleComponent text="second" id="2" onToggle={this.onLowerToggle} storeToggled={this.state.higher.lowerToggled}/>
